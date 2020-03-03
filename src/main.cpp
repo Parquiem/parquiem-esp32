@@ -25,13 +25,17 @@ void loop() {
   if (!mqttClient->connected()) {
     connect();
   }
- bool estado1 = digitalRead(IRs1);
- bool estado2 = digitalRead(IRs2);
+ 
+  Serial.println(digitalRead(IRs1));
+  Serial.println(digitalRead(IRs2));
+
+  int estado1 = digitalRead(IRs1);
+  int estado2 = digitalRead(IRs2);
+  
   StaticJsonDocument<100> doc;
     doc["estado1"] = estado1;
     doc["estado2"] = estado2;
     serializeJson(doc, buffer);
     //publishTelemetry(mqttClient, "/sensors", getDefaultSensor());
     publishTelemetry(buffer);
-    
 }
