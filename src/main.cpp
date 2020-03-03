@@ -1,9 +1,5 @@
 #include <ArduinoJson.h>
-#include <WiFi.h>
 #include "esp32-mqtt.h"
-
-const char* ssid     = "";
-const char* password = "";
 
 int IRs1 = 33;
 int IRs2 = 32;
@@ -13,12 +9,6 @@ char buffer[100];
 void setup()
 {
     Serial.begin(9600);
-      WiFi.begin(ssid, password); // Wait some time to connect to wifi
-    for(int i = 0; i < 10 && WiFi.status() != WL_CONNECTED; i++) {
-        Serial.print(".");
-        delay(1000);
-    }
-    
   pinMode(IRs1, INPUT);
   pinMode(IRs2, INPUT);
     setupCloudIoT();
