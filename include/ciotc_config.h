@@ -4,8 +4,8 @@ const char *password = "audiovisualHQ2020";
 // Cloud iot details.
 const char *project_id = "directed-will-245201";
 const char *location = "us-central1";
-const char *registry_id = "esp32-test";
-const char *device_id = "esp32-dev1";
+const char *registry_id = "esp32Reg";
+const char *device_id = "esp32";
  
 // Configuration for NTP
 const char* ntp_primary = "pool.ntp.org";
@@ -16,42 +16,56 @@ const char* ntp_secondary = "time.nist.gov";
 #endif
  
 const char *private_key_str =
-    "08:64:58:87:e3:1a:34:53:82:d1:a7:4a:32:b2:60:"
-    "49:a7:1a:2d:f2:d6:ef:50:05:e3:8c:4b:2d:90:e5:"
-    "97:b5";
+    "-----BEGIN PRIVATE KEY-----\n"
+"MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDWe/zXEsWRZs+X\n"
+"RIAgehyj4hO2sbkcyZtGtf48LvF7xJ06Lb2oSpMCAKsuIllkhtdmxGJ67wGys7Ou\n"
+"axFOSFo4qRVoqaf38u53EqUE5V3U1mJ15yg9btBRdFZQyabu9UyY+YsVnCl1EBBB\n"
+"0sD3oth84rBUazAV6DZI5bc+jr9EjFrwWWM2y72qYFil45uMXyZLOHB2A55atf/8\n"
+"k4n5zBChYFdUBdm6fflXT/yTSzRKJOlbvAzaQvV7qt031WMwK678cQtwhBZA/t9l\n"
+"H4UE9YslW9RwxTa2dECvP1XaaZUNUx3AafmKTRsl5NJ+SLIdUg85+6KFSndZFZ6P\n"
+"mKyyqb7ZAgMBAAECggEACW6WZdbbfVNqGZrXj5YPIF3WxBf4rf1nqKpkLb1avTie\n"
+"OWq9hmMRJ+tjm7nC+Jq9ajWEpydPic5BPpBSyICCBy/YUyvyyQKT3gSh4R89CxkK\n"
+"Z2js6havboWRLihQAP4kii2fIiol4JH+RQbBmaI9pvBJFM1J5gy6JmaDsmqQmrEE\n"
+"ubjrJJnosVaXMmb2FKAkx9rXfI1AGQaWcjfosKmyBtrfstCSbkoyyLWEJbyulLil\n"
+"LpNcIyj1vx/ozLZVAwvrLmNwBG3Q++ZX+PLPRae5aNDlkCZWC2Fkw19PAWKhS+00\n"
+"z+++hrQtzZlaPT2rGzT///2d2SW0JGeGuLLnizY6IQKBgQD98kyp4xDVoOiZBgeu\n"
+"XhRuGO+1mWKBug2KAIVoWdw8J6ohS/7cZpuyX6D2XeHAh+XWrvi3QSFS48v1vpqg\n"
+"AgD4PikVcTaYFZ9+IfsT6AuQ6SVTS+pc2zcE4VdKXP+1oibPi6jhWL8G6ZMxIvo+\n"
+"F3adzmsmmbaNDnqDV/z8xrkrJQKBgQDYN/8lNLmMQauTelwmbBh+/eja5LxptH6U\n"
+"0ynDxb40AS6ckMwTR79cj40xn2Xe7/jodlpG+/zHtysf6ZWRfgdXI0+93s6Fp/fR\n"
+"mk0a6MXRrphbvlt0nlqIqSAmboXhrb+xadLRn/5PxQKWpQqO8ta3gXMvdgKoMcOC\n"
+"8oioGDIwpQKBgQCkGqNeGaU0WCJXWOU30gYjy6uEUBWvPXsoVgPgFknS+dLgZ4rQ\n"
+"BOLSlyeebbbIQ0nMvQ9u5QDS3vBb4wtrIUBdK1ZDTAD6sOZ7jRwCli57O57qQCG4\n"
+"VdUtKy3MmWKJjrrD3j2JOl9f6Ss8Up0h6Om3OsBVlnm4l8WmAQM0mnronQKBgQCA\n"
+"heiYCRsyD+cZJuaXwDFfazZ6xvRoMO39MPfmcyh4aSt3zWpBG6jYMExRbtpzBloC\n"
+"dDd9clPzsyFjOsm5Thy24zqHNmW0dP+ODBZBJJRR62KNRj2+uFJAYafGsHPMjicg\n"
+"IjM6f8v/RrAfM8Nu7VJMihoZ4B/8Mnhw4hHxOVC8MQKBgHom/8GU2EHQ3gs538PA\n"
+"fNMDAXpUIKNG/xKrmdRF3ECHjHCSC5JoZzY2FtyN4iiGn8oFvhS0UnyjDh7ztP75\n"
+"3CZTGIJOdcysP2HMOWa8/oPPrlJCqRF1ZfUi+03NA1SOlM7928wDUOLaujlzgNTs\n"
+"24wHLDeyMgGPolo8MHBoMUto\n"
+"-----END PRIVATE KEY-----\n";
  
 // Time (seconds) to expire token += 20 minutes for drift
 const int jwt_exp_secs = 3600; // Maximum 24H (3600*24)
  
 const char *root_cert =
- "-----BEGIN CERTIFICATE-----\n"
-"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\n"
+
+"-----BEGIN CERTIFICATE-----\n"
+"MIIDAzCCAeugAwIBAgIUbLPQjuOhYseFn7NolJK+ln1KP2kwDQYJKoZIhvcNAQEL\n"
+"BQAwETEPMA0GA1UEAwwGdW51c2VkMB4XDTIwMDMwNDE3NTY0M1oXDTIwMDQwMzE3\n"
+"NTY0M1owETEPMA0GA1UEAwwGdW51c2VkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A\n"
+"MIIBCgKCAQEA1nv81xLFkWbPl0SAIHoco+ITtrG5HMmbRrX+PC7xe8SdOi29qEqT\n"
+"AgCrLiJZZIbXZsRieu8BsrOzrmsRTkhaOKkVaKmn9/LudxKlBOVd1NZidecoPW7Q\n"
+"UXRWUMmm7vVMmPmLFZwpdRAQQdLA96LYfOKwVGswFeg2SOW3Po6/RIxa8FljNsu9\n"
+"qmBYpeObjF8mSzhwdgOeWrX//JOJ+cwQoWBXVAXZun35V0/8k0s0SiTpW7wM2kL1\n"
+"e6rdN9VjMCuu/HELcIQWQP7fZR+FBPWLJVvUcMU2tnRArz9V2mmVDVMdwGn5ik0b\n"
+"JeTSfkiyHVIPOfuihUp3WRWej5issqm+2QIDAQABo1MwUTAdBgNVHQ4EFgQUDynC\n"
+"mQMNpto+VujAZDPiw650zpIwHwYDVR0jBBgwFoAUDynCmQMNpto+VujAZDPiw650\n"
+"zpIwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAIS6yVjNCCFPl\n"
+"a6b1bABLhcayLnw68kZmTh+6qQ9jMcsE73ZLtc0K9ORT8Ba0VZxCOuyJ/b1GbtIp\n"
+"Qk8bLT0Qf0I3VIjbRip8HXhB/e1sODbf1Uz43tSy4HWL3oMcbGfSRzqfSvmyhe87\n"
+"Muo9fj66PvgdiQlX2q/MYa5FYWzbyjs/ghJoBy4RI6bpEYl2hYRyod3vzLUKcpMV\n"
+"DvrYnKfCHROitlXYqnr48OsEYiuBmAjXYE5Bfq7VA0F+XDxmIUw2aAv5+zS9dxFf\n"
+"L/hJMjZHBD3iKgJn+erg/QynSQcVQrkqxpDLcuNk8EZFssynWFK3HV4hvUqUt4mx\n"
+"SBw36oRlIA==\n"
 "-----END CERTIFICATE-----\n";
